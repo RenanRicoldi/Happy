@@ -1,0 +1,161 @@
+_id: spc_a853ee09ba7e46ee9181bd8b8fc8c3e1
+contentType: yaml
+contents: >-
+  {
+      "openapi": "3.0.3",
+      "info": {
+          "title": "Happy",
+          "description": "This is an REST API for an application that helps people visiting orphanages.",
+          "contact": {
+              "name": "Renan Ricoldi Fróis Pedro",
+              "url": "https://github.com/RenanRicoldi/Happy",
+              "email": "renan.ricoldi.frois@gmail.com"
+          },
+          "version": "1.0.0"
+      },
+      "servers": [
+          {
+              "url": "http://127.0.0.1:8080",
+              "description": "Development Server",
+          }
+      ],
+      "components": {
+          "responses": {
+              "GeneralError": {
+                  "type": "object",
+                  "properties": {
+                      "message": {
+                          "type": "string",
+                          "example": "Error creating Orphanage."
+                      }
+                  }
+              },
+              "GeneralSuccess": {
+                  "type": "object",
+                  "properties": {
+                      "message": {
+                          "type": "string",
+                          "example": "Orphanage created."
+                      }
+                  }
+              }
+          }
+      },
+      "paths": {
+              "/orphanages": {
+                  "post": {
+                      "description": "Create an orphanage.",
+                      "operationId": "createOrphanage",
+                      "parameters": [                      
+                          {
+                              "name": "name",
+                              "in": "body",
+                              "description": "Name of the orphanage.",
+                              "required": true,
+                              "schema": {
+                                  "type": "string",
+                                  "example": "Orfanato São João"
+                              }
+                          },
+                          {
+                              "name": "latitude",
+                              "in": "body",
+                              "description": "Latitude of the orphanage.",
+                              "required": true,
+                              "schema": {
+                                  "type": "number",
+                                  "example": -3.8713
+                              }
+                          },
+                          {
+                              "name": "longitude",
+                              "in": "body",
+                              "description": "Longitude of the orphanage.",
+                              "required": true,
+                              "schema": {
+                                  "type": "number",
+                                  "example": 81.9000
+                              }
+                          },
+                          {
+                              "name": "about",
+                              "in": "body",
+                              "description": "Text about the orphanage.",
+                              "required": true,
+                              "schema": {
+                                  "type": "string",
+                                  "example": "Um orfanato com crianças muito educadas"
+                              }
+                          },
+                          {
+                              "name": "instructions",
+                              "in": "body",
+                              "description": "Instructions to visit the orphanage.",
+                              "required": true,
+                              "schema": {
+                                  "type": "string",
+                                  "example": "Para visitar favor agendar pelo telefone (XX) xxxx-xxxx"
+                              }
+                          },
+                          {
+                              "name": "opening_hours",
+                              "in": "body",
+                              "description": "Open hours of the orphanage",
+                              "required": true,
+                              "schema": {
+                                  "type": "string",
+                                  "example": "8h as 18h"
+                              }
+                          },
+                          {
+                              "name": "open_on_weekends",
+                              "in": "body",
+                              "description": "Information if the orphanage is open on weekends.",
+                              "required": true,
+                              "schema": {
+                                  "type": "boolean",
+                                  "example": "true"
+                              }
+                          },
+                      ],
+                      "requestBody": {
+                          "content": {
+                              "application/json": {
+                                  "schema"
+                              }
+                          }
+                      },
+                      "responses": {
+                          "201": {
+                              "description": "Orphanage created.",
+                              "content": {
+                                  "application/json": {
+                                      "schema": {
+                                          "type": "object",
+                                          "$ref": "#/components/responses/GeneralSuccess"
+                                      }
+                                  }
+                              }
+                          },                       
+                          "400": {
+                              "description": "Failed to create an orphanage.",
+                              "content": {
+                                  "application/json": {
+                                      "schema": {
+                                          "type": "object",
+                                             "$ref": "#/components/responses/GeneralError"
+                                      }
+                                  }
+                              }
+                          }
+                      },
+                      
+                  }
+              }
+          }
+  }
+created: 1602638228516
+fileName: NLW
+modified: 1602686281621
+parentId: wrk_7b36db9c7a4d4353b74568828f2106d8
+type: ApiSpec

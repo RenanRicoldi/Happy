@@ -1,0 +1,22 @@
+_id: req_wrk_7b36db9c7a4d4353b74568828f2106d8736a5989
+authentication: {}
+body:
+  mimeType: application/json
+created: 1602686089839
+description: ""
+headers: []
+isPrivate: false
+metaSortKey: -1600020198249
+method: POST
+modified: 1602686289080
+name: /orphanages
+parameters: []
+parentId: fld_f1895323bddc4a1db0faa56e540e0371
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingFollowRedirects: global
+settingRebuildPath: true
+settingSendCookies: true
+settingStoreCookies: true
+type: Request
+url: "{{ base_url }}/orphanages"
