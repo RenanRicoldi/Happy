@@ -34,7 +34,6 @@ export default {
     
             await orphanageRepository.save(orphanage)
         } catch(error) {
-            console.log(error)
             return response.status(400).json({ message: 'Error creating orphanage.' })
         }
     
@@ -62,7 +61,9 @@ export default {
         const orphanageRepository = getRepository(Orphanage)
 
         try {
-            const orphanage = await orphanageRepository.findOneOrFail(id)
+            const orphanage = await orphanageRepository.findOneOrFail(id, {
+                relations: ['images']
+            })
 
             return response.status(200).json(OrphanageView.render(orphanage))
         } catch(error) {
